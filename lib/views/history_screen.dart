@@ -18,7 +18,7 @@ class HistoryScreen extends StatelessWidget {
               itemCount: attendanceHistory.history.length,
               itemBuilder: (context, index) {
                 final record = attendanceHistory.history[index];
-                final date = DateFormat('dd MMM yyyy').format(record['waktu']);
+                final date = DateFormat('dd MMMM yyyy').format(record['waktu']);
                 return ListTile(
                   title: Text(date),
                   subtitle: Text(
