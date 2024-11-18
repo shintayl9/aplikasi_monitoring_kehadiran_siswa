@@ -22,7 +22,7 @@ class HistoryScreen extends StatelessWidget {
                 return ListTile(
                   title: Text(date),
                   subtitle: Text(
-                      'Hadir: ${record['present']}, Tidak Hadir: ${record['absent']}'),
+                      'Hadir: ${record['hadir']}, Tidak Hadir: ${record['tidak hadir']}'),
                 );
               },
             ),
