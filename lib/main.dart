@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'views/history_screen.dart';
-import 'views/attendance_screen.dart';
-import 'provider/attendance_provider.dart';
+import 'views/presence_screen.dart';
+import 'provider/presence_provider.dart';
 
 void main() {
   runApp(
