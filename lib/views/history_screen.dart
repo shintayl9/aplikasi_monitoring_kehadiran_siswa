@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final attendanceHistory = Provider.of<AttendanceProvider>(context);
