@@ -3,30 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class HistoryScreen extends StatefulWidget {
-  const HistoryScreen({Key? key}) : super(key: key);
-
-  @override
-  _HistoryScreenState createState() => _HistoryScreenState();
-}
-
-class _HistoryScreenState extends State<HistoryScreen> {
+class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final attendanceProvider = Provider.of<AttendanceProvider>(context);
+    final attendanceHistory = Provider.of<AttendanceProvider>(context);
 
     return Scaffold(
-        appBar: AppBar(title: const Text('Riwayat Kehadiran')),
-        body: ListView.builder(
-            itemCount: attendanceProvider.history.length,
-            itemBuilder: (context, index) {
-              final record = attendanceProvider.history[index];
-              return ListTile(
-                title: Text(DateFormat('dd mmm yyyy').format(record['waktu'])),
-                subtitle: Text(
-                  'Hadir: ${record['present']}, Tidak Hadir:${record['absent']}',
-                ),
-              );
-            }));
+      appBar: AppBar(title: const Text('Riwayat Kehadiran')),
+      body: attendanceHistory.history.isEmpty
+          ? Center(child: Text('Tidak ada data kehadiran'))
+          : ListView.builder(
+              itemCount: attendanceHistory.history.length,
+              itemBuilder: (context, index) {
+                final record = attendanceHistory.history[index];
+                final date = DateFormat('dd MMM yyyy').format(record['waktu']);
+                return ListTile(
+                  title: Text(date),
+                  subtitle: Text(
+                      'Hadir: ${record['present']}, Tidak Hadir: ${record['absent']}'),
+                );
+              },
+            ),
+    );
   }
 }
