@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       title: 'Aplikasi Monitoring Kehadiran Siswa',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const MainScreen(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
