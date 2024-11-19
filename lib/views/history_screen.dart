@@ -8,20 +8,27 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final attendanceHistory = Provider.of<AttendanceProvider>(context);
+    final attendanceHistory =
+        Provider.of<AttendanceProvider>(context); // Mengakses provider data.
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Riwayat Kehadiran')),
+      appBar: AppBar(
+          title: const Text('Riwayat Kehadiran')), // Header dengan judul layar.
       body: attendanceHistory.history.isEmpty
-          ? Center(child: Text('Tidak ada data kehadiran'))
+          ? Center(
+              child: Text(
+                  'Tidak ada data kehadiran')) // Pesan jika tidak ada riwayat kehadiran.
           : ListView.builder(
-              itemCount: attendanceHistory.history.length,
+              itemCount: attendanceHistory.history.length, // Jumlah riwayat.
               itemBuilder: (context, index) {
-                final record = attendanceHistory.history[index];
-                final date = DateFormat('dd MMMM yyyy').format(record['waktu']);
+                final record =
+                    attendanceHistory.history[index]; // Mengambil data riwayat.
+                final date = DateFormat('dd MMMM yyyy')
+                    .format(record['waktu']); // Format waktu.
                 return ListTile(
-                  title: Text(date),
+                  title: Text(date), // Menampilkan tanggal presensi.
                   subtitle: Text(
+                      // Menampilkan jumlah siswa hadir dan tidak hadir.
                       'Hadir: ${record['hadir']}, Tidak Hadir: ${record['tidak hadir']}'),
                 );
               },
