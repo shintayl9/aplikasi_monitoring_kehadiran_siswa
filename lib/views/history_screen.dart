@@ -10,7 +10,10 @@ class HistoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final attendanceHistory = Provider.of<AttendanceProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: const Text('Riwayat Kehadiran')),
+      appBar: AppBar(
+        title: const Text('Riwayat Kehadiran'),
+        backgroundColor: Colors.teal,
+      ),
       body: attendanceHistory.history.isEmpty
           ? Center(child: Text('Tidak ada data kehadiran'))
           : ListView.builder(
