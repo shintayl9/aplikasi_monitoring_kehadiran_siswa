@@ -5,6 +5,11 @@ class AttendanceProvider extends ChangeNotifier {
     {'name': 'Ali', 'isPresent': false},
     {'name': 'Budi', 'isPresent': false},
     {'name': 'Citra', 'isPresent': false},
+    {'name': 'Putri', 'isPresent': false},
+    {'name': 'Laura', 'isPresent': false},
+    {'name': 'Putra', 'isPresent': false},
+    {'name': 'Maharani', 'isPresent': false},
+    {'name': 'Riski', 'isPresent': false},
   ];
 
   final List<Map<String, dynamic>> _history = [];
