@@ -17,8 +17,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         Provider.of<AttendanceProvider>(context); // Mengakses provider data.
 
     return Scaffold(
-        appBar: AppBar(
-            title: const Text('Presensi Siswa')), // Header dengan judul layar.
+        // Header dengan judul layar.
+        appBar: AppBar(title: const Text('Presensi Siswa')),
+        backgroundColor: Colors.teal,
         body: Column(
           children: [
             Expanded(
