@@ -18,8 +18,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
     return Scaffold(
         // Header dengan judul layar.
-        appBar: AppBar(title: const Text('Presensi Siswa')),
-        backgroundColor: Colors.teal,
+        appBar: AppBar(title: const Text('Presensi Siswa'), backgroundColor: Colors.teal),
         body: Column(
           children: [
             Expanded(
