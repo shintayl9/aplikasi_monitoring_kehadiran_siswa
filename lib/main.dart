@@ -7,12 +7,10 @@ import 'provider/presence_provider.dart';
 void main() {
   runApp(
     MultiProvider(
-      // Menyediakan state management untuk banyak provider.
       providers: [
         ChangeNotifierProvider(create: (_) => AttendanceProvider()),
-        // Mendaftarkan `AttendanceProvider` untuk menyediakan data kehadiran.
       ],
-      child: const MyApp(), // Menjalankan aplikasi utama.
+      child: const MyApp(),
     ),
   );
 }
@@ -23,11 +21,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Struktur utama aplikasi Flutter.
-      title: 'Aplikasi Monitoring Kehadiran Siswa', // Judul aplikasi.
-      theme: ThemeData(
-          primarySwatch: Colors.blue), // Tema aplikasi dengan warna dasar biru.
-      home: const MainScreen(), // Menentukan layar awal aplikasi.
+      title: 'Aplikasi Monitoring Kehadiran Siswa',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const MainScreen(),
     );
   }
 }
@@ -36,40 +32,31 @@ class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScreen> createState() =>
-      _MainScreenState(); // Membuat state untuk MainScreen.
+  State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0; // Menyimpan index tab yang aktif.
+  int _currentIndex = 0;
 
   final List<Widget> _screens = const [
-    AttendanceScreen(), // Layar pencatatan kehadiran.
-    HistoryScreen(), // Layar riwayat kehadiran.
+    AttendanceScreen(),
+    HistoryScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Struktur dasar layar dengan AppBar, body, dan navigasi bawah.
-      body: _screens[
-          _currentIndex], // Menampilkan layar berdasarkan index tab yang aktif.
+      body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        // Navigasi bawah untuk berpindah antar layar.
-        currentIndex: _currentIndex, // Menyimpan tab yang aktif.
+        currentIndex: _currentIndex,
         onTap: (index) {
-          // Mengatur aksi saat tab diubah.
           setState(() {
-            _currentIndex = index; // Mengubah tab aktif.
+            _currentIndex = index;
           });
         },
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.edit), // Ikon untuk tab pencatatan.
-              label: 'Pencatatan'), // Label untuk tab pencatatan.
-          BottomNavigationBarItem(
-              icon: Icon(Icons.history), // Ikon untuk tab riwayat.
-              label: 'Riwayat'), // Label untuk tab riwayat.
+          BottomNavigationBarItem(icon: Icon(Icons.edit), label: 'Pencatatan'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Riwayat'),
         ],
       ),
     );

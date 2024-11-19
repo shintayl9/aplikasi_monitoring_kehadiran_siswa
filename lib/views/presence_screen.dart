@@ -6,34 +6,30 @@ class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({Key? key}) : super(key: key);
 
   @override
-  _AttendanceScreenState createState() =>
-      _AttendanceScreenState(); // Membuat state widget.
+  _AttendanceScreenState createState() => _AttendanceScreenState();
 }
 
 class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
-    final attendanceProvider =
-        Provider.of<AttendanceProvider>(context); // Mengakses provider data.
+    final attendanceProvider = Provider.of<AttendanceProvider>(context);
 
     return Scaffold(
-        // Header dengan judul layar.
-        appBar: AppBar(title: const Text('Presensi Siswa'), backgroundColor: Colors.teal),
+        appBar: AppBar(
+            title: const Text('Presensi Siswa'), backgroundColor: Colors.teal),
         body: Column(
           children: [
             Expanded(
               child: ListView.builder(
-                // Membuat daftar siswa menggunakan ListView.
-                itemCount: attendanceProvider.students.length, // Jumlah siswa.
+                itemCount: attendanceProvider.students.length,
                 itemBuilder: (context, index) {
-                  final student = attendanceProvider.students[
-                      index]; // Mengambil data siswa berdasarkan index.
+                  final student = attendanceProvider.students[index];
                   return ListTile(
-                    title: Text(student['name']), // Menampilkan nama siswa.
+                    title: Text(student['name']),
                     trailing: Checkbox(
-                      value: student['isPresent'], // Status kehadiran.
-                      onChanged: (_) => attendanceProvider.replaceAttendance(
-                          index), // Mengubah status kehadiran siswa.
+                      value: student['isPresent'],
+                      onChanged: (_) =>
+                          attendanceProvider.replaceAttendance(index),
                     ),
                   );
                 },
@@ -42,11 +38,10 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: attendanceProvider.students
-                        .any((s) => s['isPresent'])
-                    ? () => attendanceProvider
-                        .saveAttendance() // Menyimpan data kehadiran ke riwayat.
-                    : null,
+                onPressed:
+                    attendanceProvider.students.any((s) => s['isPresent'])
+                        ? () => attendanceProvider.saveAttendance()
+                        : null,
                 child: const Text('Simpan Kehadiran'), // tombol.
               ),
             )
