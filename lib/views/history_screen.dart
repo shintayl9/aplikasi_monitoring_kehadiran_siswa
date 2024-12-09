@@ -12,6 +12,7 @@ class HistoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riwayat Kehadiran'),
+        centerTitle: true,
         backgroundColor: Colors.teal,
       ),
       body: attendanceHistory.history.isEmpty

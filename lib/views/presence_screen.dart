@@ -16,7 +16,9 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
 
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Presensi Siswa'), backgroundColor: Colors.teal),
+          title: const Text('Presensi Siswa'),
+          centerTitle: true,
+          backgroundColor: Colors.teal),
       body: Column(
         children: [
           Expanded(
