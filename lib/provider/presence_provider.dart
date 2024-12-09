@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class AttendanceProvider extends ChangeNotifier {
   final List<Map<String, dynamic>> _students = [
-    {'name': 'Ali', 'isPresent': false},
-    {'name': 'Budi', 'isPresent': false},
-    {'name': 'Citra', 'isPresent': false},
-    {'name': 'Putri', 'isPresent': false},
-    {'name': 'Laura', 'isPresent': false},
-    {'name': 'Putra', 'isPresent': false},
-    {'name': 'Maharani', 'isPresent': false},
-    {'name': 'Riski', 'isPresent': false},
+    {'name': 'Ali', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Budi', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Citra', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Putri', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Laura', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Putra', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Maharani', 'isPresent': false, 'icon': Icons.person},
+    {'name': 'Riski', 'isPresent': false, 'icon': Icons.person},
   ];
 
   final List<Map<String, dynamic>> _history = [];

@@ -25,6 +25,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               itemBuilder: (context, index) {
                 final student = attendanceProvider.students[index];
                 return ListTile(
+                  leading: Icon(student['icon'] ?? Icons.person),
                   title: Text(student['name']),
                   trailing: Checkbox(
                     value: student['isPresent'],
@@ -41,7 +42,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               onPressed: attendanceProvider.students.any((s) => s['isPresent'])
                   ? () => attendanceProvider.saveAttendance()
                   : null,
-              child: const Text('Simpan Kehadiran'), // tombol.
+              child: const Text('Simpan Kehadiran'),
             ),
           )
         ],
